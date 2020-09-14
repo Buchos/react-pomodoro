@@ -1,29 +1,21 @@
 import moment from "moment";
-import React, { useState } from "react";
+import React from "react";
 
-const Session = () => {
-    const [breakLength, SetBreakLength] = useState(60 * 25)
+const Session = ({
+    sessionLength,
+    decrementSessionLength,
+    incrementSessionLength,
 
-    const decrementBreakLength = () => {
-        const newBreakLength = breakLength - 60
 
-        if (newBreakLength < 0) {
-            SetBreakLength(0);
-        } else {
-            SetBreakLength(newBreakLength);
-        }
-    };
 
-    const incrementBreakLength = () => {
-        SetBreakLength(breakLength + 60);
-    };
-    const breakLengthInMinutes = moment.duration(breakLength, 's').minutes()
+}) => {
+    const sessionLengthInMinutes = moment.duration(sessionLength, 's').minutes()
     return (
         <div>
             <p id="session-label">Session</p>
-            <p id="session-length">{breakLengthInMinutes}</p>
-            <button onClick={decrementBreakLength}>-</button>
-            <button onClick={incrementBreakLength}>+</button>
+            <p id="session-length">{sessionLengthInMinutes}</p>
+            <button onClick={decrementSessionLength}>-</button>
+            <button onClick={incrementSessionLength}>+</button>
         </div>
     )
 }
