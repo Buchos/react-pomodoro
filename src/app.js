@@ -36,6 +36,22 @@ function App() {
     SetSessionLength(sessionLength + 60);
   };
 
+  const handleResetButtonClick = () => {
+    // clear the timeout interval
+
+    // set the intervalId to null
+
+    // set sessionType to 'Session'
+
+    // reset sessionLength to 25 min
+
+    // reset breakLength to 5 min
+
+    // reset the timer to 25 min as default
+
+
+  }
+
   return (
 
     <div className="App">

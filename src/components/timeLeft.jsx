@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
@@ -14,6 +15,7 @@ const TimeLeft = ({
     //change timeLeft when sessionLength change
     useEffect(() => {
         setTimeLeft(sessionLength);
+
     }, [sessionLength]);
 
     const isStarted = intervalId != null;
@@ -32,7 +34,7 @@ const TimeLeft = ({
             //if in stopped mode :
             //decrement timeLeft by one every second
             // use setInterval
-            const newintervalId = setInterval(() => {
+            const newIntervalId = setInterval(() => {
                 setTimeLeft(prevTimeLeft => {
                     const newTimeLeft = prevTimeLeft - 1;
                     if (newTimeLeft >= 0) {
@@ -58,7 +60,7 @@ const TimeLeft = ({
                 })
 
             }, 100);
-            setIntervalId(newintervalId);
+            setIntervalId(newIntervalId);
         }
     }
 
