@@ -2,7 +2,7 @@ import moment from "moment";
 import React, { useState } from "react";
 
 const Break = () => {
-    const [breakLength, SetBreakLength] = useState(300)
+    const [breakLength, SetBreakLength] = useState(60 * 5)
 
     const decrementBreakLength = () => {
         const newBreakLength = breakLength - 60
