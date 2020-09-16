@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Break from "./components/break";
 import Session from "./components/session";
 import TimeLeft from "./components/timeLeft";
+import moment from "moment";
 
 function App() {
   const audioElement = useRef(null);
@@ -17,6 +18,14 @@ function App() {
   useEffect(() => {
     setTimeLeft(sessionLength);
   }, [sessionLength]);
+
+  const formattedTitleTimeLeft = moment
+    .duration(timeLeft, "s")
+    .format("mm:ss", { trim: false });
+
+  useEffect(() => {
+    document.title = `${formattedTitleTimeLeft} | ${currentSessionType} - PomodoReact`;
+  }, [formattedTitleTimeLeft]);
 
   useEffect(() => {
     // if timeLeft is zero

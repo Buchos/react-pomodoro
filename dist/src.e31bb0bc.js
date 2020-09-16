@@ -35833,6 +35833,8 @@ var _session = _interopRequireDefault(require("./components/session"));
 
 var _timeLeft = _interopRequireDefault(require("./components/timeLeft"));
 
+var _moment = _interopRequireDefault(require("moment"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -35883,6 +35885,14 @@ function App() {
   (0, _react.useEffect)(function () {
     setTimeLeft(sessionLength);
   }, [sessionLength]);
+
+  var formattedTitleTimeLeft = _moment.default.duration(timeLeft, "s").format("mm:ss", {
+    trim: false
+  });
+
+  (0, _react.useEffect)(function () {
+    document.title = "".concat(formattedTitleTimeLeft, " | ").concat(currentSessionType, " - PomodoReact");
+  }, [formattedTitleTimeLeft]);
   (0, _react.useEffect)(function () {
     // if timeLeft is zero
     if (timeLeft === 0) {
@@ -35998,7 +36008,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./components/break":"components/break.jsx","./components/session":"components/session.jsx","./components/timeLeft":"components/timeLeft.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./components/break":"components/break.jsx","./components/session":"components/session.jsx","./components/timeLeft":"components/timeLeft.jsx","moment":"../node_modules/moment/moment.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -36114,7 +36124,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34719" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34197" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
